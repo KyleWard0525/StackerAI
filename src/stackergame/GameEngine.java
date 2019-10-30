@@ -17,7 +17,12 @@ import javax.swing.Timer;
 
 /**
  *
- * @author user
+ * This class is the heart of the game.
+ * The GameEngine handles all of the movements,
+ * collision detection, and other primary functions needed
+ * for the game to work
+ * 
+ * @author KyleWard0525
  */
 public class GameEngine {
     
@@ -30,14 +35,22 @@ public class GameEngine {
     private JPanel rightBorder;
     private Block prevBlock;
    
-    
+    /**
+     *
+     * @param gp
+     * @param leftBorder
+     * @param rightBorder
+     */
     public GameEngine(JPanel gp, JPanel leftBorder, JPanel rightBorder)
     {
         this.gamePanel = gp;
         setGameBorders(leftBorder, rightBorder);
-        
     }
     
+    /**
+     *
+     * @param b
+     */
     public void addBlockToStack(Block b)
     {
         blockStack.push(b);
@@ -47,14 +60,19 @@ public class GameEngine {
         //drawBlock(block);
     }
     
+    /**
+     * Draw new block above the previous one
+     * @param b
+     */
     public void drawBlock(Block b)
     {
+        timer.stop();
         Random rand = new Random();
         JPanel block = new JPanel();
         float r = rand.nextFloat();
         float g = rand.nextFloat();
         float blue = rand.nextFloat();
-        block.setBackground(new Color(r,g,blue));
+        block.setBackground(new Color(r,g,blue,1.0f));
         block.setBounds(gamePanel.getWidth()/2, b.y, b.getWidth(), b.getHeight());
         this.currBlockPanel = block; 
         setCurrBlock(b);
@@ -64,12 +82,24 @@ public class GameEngine {
         timer.start();
     }
     
+    /**
+     * Set the area in which the block can move
+     * @param l
+     * @param r
+     */
     public void setGameBorders(JPanel l, JPanel r)
     {
         this.leftBorder = l;
         this.rightBorder = r;
     }
     
+    /**
+     * Check if block b is within the hit-box of 
+     * the previous block
+     * 
+     * @param b
+     * @return
+     */
     public boolean isAligned(Block b)
     {
         //timer.stop();
@@ -80,11 +110,15 @@ public class GameEngine {
         return true;
     }
     
+    /**
+     *
+     */
     public void resetBlockSpeed()
     {
         Block.xSpeed = 3;
     }
     
+    //Movement Handler
     ActionListener listener = new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -105,53 +139,105 @@ public class GameEngine {
             gamePanel.repaint();
         }
     };
+
+    /**
+     *
+     */
     public Timer timer = new Timer(10, listener);
 
+    /**
+     *
+     * @return
+     */
     public Block getCurrBlock() {
         return currBlock;
     }
 
+    /**
+     *
+     * @param currBlock
+     */
     public void setCurrBlock(Block currBlock) {
         this.currBlock = currBlock;
     }
 
+    /**
+     *
+     * @return
+     */
     public Stack<Block> getBlockStack() {
         return blockStack;
     }
 
+    /**
+     *
+     * @param gamePanel
+     */
     public void setGamePanel(JPanel gamePanel) {
         this.gamePanel = gamePanel;
     }
 
+    /**
+     *
+     * @param leftBorder
+     */
     public void setLeftBorder(JPanel leftBorder) {
         this.leftBorder = leftBorder;
     }
 
+    /**
+     *
+     * @param rightBorder
+     */
     public void setRightBorder(JPanel rightBorder) {
         this.rightBorder = rightBorder;
     }
 
+    /**
+     *
+     * @return
+     */
     public JPanel getCurrBlockPanel() {
         return currBlockPanel;
     }
 
+    /**
+     *
+     * @param currBlockPanel
+     */
     public void setCurrBlockPanel(JPanel currBlockPanel) {
         this.currBlockPanel = currBlockPanel;
     }
 
+    /**
+     *
+     * @return
+     */
     public Block getBaseBlock() {
         return baseBlock;
     }
 
+    /**
+     *
+     * @param baseBlock
+     */
     public void setBaseBlock(Block baseBlock) {
         this.baseBlock = baseBlock;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getScore()
     {
         return blockStack.size();
     }
 
+    /**
+     *
+     * @return
+     */
     public Block getPrevBlock() {
         return prevBlock;
     }
@@ -159,4 +245,7 @@ public class GameEngine {
     public void setPrevBlock(Block prevBlock) {
         this.prevBlock = prevBlock;
     }
+    
+    
 }
+

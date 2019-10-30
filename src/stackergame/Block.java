@@ -6,11 +6,15 @@
 package stackergame;
 
 /**
- *
- * @author user
+
+ * This class contains all the parameters
+ * and general behaviors for the blocks in 
+ * the game
+ * 
+ * @author KyleWard0525
  */
 public class Block {
-    
+
     public static double xSpeed = 3;
     protected static double speedInc = 1.05; //Increase speed by 5%
     private int width;
@@ -21,6 +25,11 @@ public class Block {
     public int y;
     public boolean isBase = false;
     
+    /**
+     *
+     * @param w
+     * @param h
+     */
     public Block(int w, int h)
     {
         this.width = w;
@@ -29,6 +38,9 @@ public class Block {
         xSpeed *= speedInc;
     }
     
+    /**
+     *
+     */
     public Block()
     {
         this.width = 50;
@@ -37,41 +49,68 @@ public class Block {
         xSpeed *= speedInc;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getWidth() {
         return width;
     }
 
+    /**
+     *
+     * @param width
+     */
     public void setWidth(int width) {
         this.width = width;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getHeight() {
         return height;
     }
 
+    /**
+     *
+     * @param height
+     */
     public void setHeight(int height) {
         this.height = height;
     }
 
+    /**
+     *
+     * @return
+     */
     public int[] getPosition() {
         return position;
     }
 
+    /**
+     *
+     * @param position
+     */
     public void setPosition(int[] position) {
         this.position = position;
     }
 
+    /**
+     *
+     * @return
+     */
     public static double getxSpeed() {
         return xSpeed;
     }
 
+    /**
+     *
+     * @return
+     */
     public static int getBlockID() {
         return blockID;
     }   
 
-    public static void setSpeedInc(double speed) {
-        speedInc = speed;
-    }
-    
-    
 }
