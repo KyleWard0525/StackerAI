@@ -464,7 +464,6 @@ public class GameBoard extends javax.swing.JFrame {
         radInsane.setSelected(false);
         radBroken.setSelected(false);
         Block.speedInc = 1.05;
-        
     }                                         
 
     private void radHardActionPerformed(java.awt.event.ActionEvent evt) {                                        
