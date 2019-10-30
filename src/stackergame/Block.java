@@ -10,6 +10,7 @@ package stackergame;
  * This class contains all the parameters
  * and general behaviors for the blocks in 
  * the game
+ *  
  * 
  * @author KyleWard0525
  */
