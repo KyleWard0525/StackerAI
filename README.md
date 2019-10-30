@@ -7,6 +7,7 @@ The outputs are to either stop at the current position or dont stop respectively
 
 Population size = 500;
 
-***WARNING***
-As of 10/25/19 the program has a major memory issue that will cause it to crash after 
-a certain period of time whilst training. Im currently working on a solution to this issue.
+10/30/19:
+- Memory issue fixed
+- Added load-from-file support
+
