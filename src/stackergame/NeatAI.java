@@ -218,6 +218,7 @@ public class NeatAI {
         catch(IOException | ClassNotFoundException e)
         {
             System.out.println("File not found");
+            
         }
     }
 }
