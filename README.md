@@ -7,6 +7,8 @@ The outputs are to either stop at the current position or dont stop respectively
 
 Population size = 500;
 
+Note: The file "network.model" is the trained AI model.
+
 10/30/19:
 - Memory issue fixed
 - Added load-from-file support
